@@ -1,0 +1,16 @@
+[
+  {
+    "participant_id": "P-20260328194500-4821",
+    "condition": "A",
+    "decision": "accept",
+    "timestamp": "2026-03-28T19:45:03.201Z",
+    "latency_ms": 3218
+  },
+  {
+    "participant_id": "P-20260328194710-1054",
+    "condition": "B",
+    "decision": "override",
+    "timestamp": "2026-03-28T19:47:16.511Z",
+    "latency_ms": 4890
+  }
+]
