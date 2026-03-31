@@ -48,12 +48,6 @@ export default function HomePage() {
           <Link href="/task" className="buttonLink">
             Start Task
           </Link>
-          <a href="/api/export?format=json" className="buttonLink secondary">
-            Download JSON Logs
-          </a>
-          <a href="/api/export?format=csv" className="buttonLink secondary">
-            Download CSV Logs
-          </a>
         </div>
       </div>
 
