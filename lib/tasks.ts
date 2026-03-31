@@ -20,7 +20,8 @@ export interface TaskScenario {
   scenario: string;
   optionA: TaskOption;
   optionB: TaskOption;
-  aiRecommendation: "A";   // always A for consistent coding
+  aiRecommendation: "A" | "B";
+
   rationaleFormal: string[];
   rationaleConversational: string[];
 }
@@ -57,9 +58,9 @@ export const TASK_SCENARIOS: TaskScenario[] = [
       "While Option A incurs a recurring $50 maintenance cost and moderate noise, it prevents respiratory irritation for the allergic occupant, which is the primary goal of the purchase."
     ],
     rationaleConversational: [
-      "I strongly suggest going with Option A. Option B looks incredibly tempting since it's silent and has zero maintenance costs, but there's a serious catch.",
-      "Option B emits 'trace amounts of ozone'. In a tiny 15-square-meter bedroom running all night long, that ozone gets trapped and actually builds up to levels that can hurt your lungs.",
-      "Since the person using the room already has allergies, feeding them ozone is a terrible idea. Yeah, Option A is a bit louder and costs $50 a year to maintain, but it's the only safe choice here."
+      "Option A is highly recommended for this tight space and long usage duration. The main dealbreaker for Option B is that it gives off trace amounts of ozone.",
+      "In a small, poorly ventilated 15-square-meter room running for 8 straight hours, electrostatic models can cause ozone levels to build up way past the WHO safe limit of 100 μg/m3.",
+      "Even though Option A has a $50 yearly maintenance cost and is a bit louder, it stops the allergic person from getting awful respiratory irritation, which is the whole point of buying this."
     ]
   },
 
@@ -72,31 +73,31 @@ export const TASK_SCENARIOS: TaskScenario[] = [
     optionA: {
       name: "Option A",
       specs: [
-        "Provider Alpha",
-        "$50/month",
-        "2TB total pooled storage",
-        "Uses 'Block-Level' sync protocol"
-      ]
-    },
-    optionB: {
-      name: "Option B",
-      specs: [
         "Provider Beta",
         "$40/month",
         "5TB total storage (1TB per user)",
         "Uses 'File-Level' sync protocol"
       ]
     },
-    aiRecommendation: "A",
+    optionB: {
+      name: "Option B",
+      specs: [
+        "Provider Alpha",
+        "$50/month",
+        "2TB total pooled storage",
+        "Uses 'Block-Level' sync protocol"
+      ]
+    },
+    aiRecommendation: "B",
     rationaleFormal: [
-      "Option A is the optimal choice primarily due to its underlying synchronization architecture.",
-      "Because the team edits large 5GB video files, Option A's 'Block-Level' sync will only upload the tiny pieces (blocks) of the file that were actually altered during the edit, taking seconds.",
-      "Conversely, Option B uses 'File-Level' sync. Even if a user makes a 1second cut, the system will re-upload the entire 5GB file from scratch, crippling team bandwidth and halting productivity."
+      "Option B is the optimal choice primarily due to its underlying synchronization architecture.",
+      "Because the team edits large 5GB video files, Option B's 'Block-Level' sync will only upload the specific bytes altered during the edit, completing the synchronization in seconds.",
+      "Conversely, Option A uses 'File-Level' sync, meaning even a minor one-second cut forces a complete 5GB re-upload, crippling team bandwidth and halting productivity."
     ],
     rationaleConversational: [
-      "Option A is definitely the way to go here. Option B looks like a much better deal because you get more than double the storage for less money, but it would ruin your team's workflow.",
-      "The secret is the sync protocol. Option A uses 'Block-Level' sync, meaning if you make a tiny edit to a massive 5GB video, it only uploads the few megabytes you changed.",
-      "Option B uses 'File-Level' sync. That means every single time someone hits save, the computer has to re-upload the entire 5GB file all over again, taking hours and freezing collaboration."
+      "Option B is definitely the best choice, mainly because of how its backend syncing tech actually works under the hood.",
+      "Since your team edits massive 5GB video files, Option B's 'Block-Level' sync only uploads the exact pieces you changed during the edit, so it finishes saving in just seconds.",
+      "Meanwhile, Option A uses 'File-Level' sync, meaning even a tiny one-second edit makes it re-upload the entire 5GB file from scratch, totally killing your internet speed and ruining teamwork."
     ]
   },
 
@@ -128,12 +129,12 @@ export const TASK_SCENARIOS: TaskScenario[] = [
     rationaleFormal: [
       "Option A is the recommended platform because of its automated anti-spam compliance framework.",
       "University club domains historically suffer from poor IP sender reputation due to high bounce rates from graduating students' inactive emails.",
-      "Service Economy (Option B) lacks strict formatting checks, meaning the club's emails will likely be flagged by major mail providers (Gmail, Outlook) and placed invisibly into spam folders. The cost savings of Option B are invalidated if the emails are never seen."
+      "Service Economy (Option B) lacks strict formatting checks, resulting in emails being flagged by major providers and placed invisibly into spam folders; the cost savings are invalidated if the emails are never seen."
     ],
     rationaleConversational: [
-      "I'd definitely pick Option A for the club. Option B is way cheaper and gives you unlimited contacts, but there's a hidden technical trap.",
-      "University clubs always have terrible 'sender reputations' because they constantly email old students whose inboxes have been deactivated, causing huge bounce rates.",
-      "Because of that bad reputation, if you use a cheap service like Option B that doesn't strictly force good formatting, Google and Outlook will just quietly toss your newsletter straight into people's spam folders. It's totally worth paying $20 extra to make sure people actually read it."
+      "Option A is definitely the recommended platform here, thanks to its built-in anti-spam safety checks.",
+      "University club addresses always end up with a terrible 'sender reputation' because they constantly get bounces from graduated students' dead email accounts.",
+      "Option B doesn't strictly force good formatting, so major email providers will just quietly dump your newsletters straight into spam folders; saving $20 a month is completely useless if nobody ever sees the emails."
     ]
   },
 
@@ -146,31 +147,31 @@ export const TASK_SCENARIOS: TaskScenario[] = [
     optionA: {
       name: "Option A",
       specs: [
-        "LED Projector",
-        "4K Ultra HD Resolution",
-        "800 ANSI Lumens (Dim)",
-        "$500"
-      ]
-    },
-    optionB: {
-      name: "Option B",
-      specs: [
         "Laser Projector",
         "1080p Full HD Resolution",
         "3000 ANSI Lumens (Bright)",
         "$650"
       ]
     },
-    aiRecommendation: "A",
+    optionB: {
+      name: "Option B",
+      specs: [
+        "LED Projector",
+        "4K Ultra HD Resolution",
+        "800 ANSI Lumens (Dim)",
+        "$500"
+      ]
+    },
+    aiRecommendation: "B",
     rationaleFormal: [
-      "Option A is the mathematically superior selection for a modern home theater setup.",
-      "A 4K resolution projector provides four times the pixel density of a 1080p unit (Option B), leading to significantly sharper image fidelity.",
-      "Furthermore, Option A achieves this vastly superior resolution while remaining $150 cheaper. Cost-to-pixel ratios dictate that Option A is the optimal hardware investment."
+      "Option B is the mathematically superior selection for a modern home theater setup.",
+      "A 4K resolution projector provides four times the pixel density of a 1080p unit (Option A), leading to significantly sharper image fidelity.",
+      "Furthermore, Option B achieves this vastly superior resolution while remaining $150 cheaper, indicating that it is the optimal hardware investment regardless of environmental lighting constraints."
     ],
     rationaleConversational: [
-      "I'd definitely go with Option A. Getting a 4K projector for only $500 is an absolute steal right now!",
-      "Option B is just standard 1080p HD, which is pretty outdated for watching sports, and it literally costs $150 more. Why pay more for worse resolution?",
-      "Option A gives you that crisp, cinematic 4K sharpness to really enjoy the game while keeping more money in your pocket."
+      "Option B is clearly the better pick for a modern home setup based on the specs.",
+      "Getting a 4K projector gives you four times as many pixels as a standard 1080p one like Option A, which means you get a way sharper picture.",
+      "Plus, Option B gives you that amazing resolution while keeping an extra $150 in your pocket, making it the smartest hardware buy even if your room is super bright."
     ]
   },
 
@@ -202,12 +203,12 @@ export const TASK_SCENARIOS: TaskScenario[] = [
     rationaleFormal: [
       "Option A is recommended as it satisfies all logistical constraints while maximizing financial efficiency.",
       "The scheduled arrival time of 1:00 PM provides a 90-minute buffer before your 2:30 PM appointment, which is mathematically sufficient for standard transit.",
-      "Selecting Option A yields a $150 cost reduction over Option B, representing a 37.5% financial gain with zero penalty to your scheduled obligations."
+      "Selecting Option A yields a $150 cost reduction over Option B, representing a 37.5% financial gain with zero penalty to your scheduled obligations, assuming optimal weather conditions."
     ],
     rationaleConversational: [
-      "I definitely recommend Option A! Unless you like setting money on fire, there's no reason to spend $400 on Option B.",
-      "Option A saves you $150 right off the bat. It still gets you to Chicago by 1:00 PM, which gives you plenty of time before your 2:30 PM appointment.",
-      "A 45-minute layover is completely standard, and saving 37% on your ticket cost makes Option A the obvious smart choice."
+      "Option A is definitely recommended since it checks all the boxes for your schedule while saving you the most money.",
+      "Landing at 1:00 PM still gives you a 90-minute buffer before your 2:30 PM appointment, which is plenty of time to get where you need to go.",
+      "Going with Option A keeps $150 in your wallet compared to Option B, which is a huge 37.5% saving that shouldn't mess up your plans, assuming the weather stays perfectly fine."
     ]
   }
 ];

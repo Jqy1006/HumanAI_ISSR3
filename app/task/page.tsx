@@ -14,6 +14,7 @@ interface TaskScenario {
   scenario: string;
   optionA: TaskOption;
   optionB: TaskOption;
+  aiRecommendation: "A" | "B";
   rationaleFormal: string[];
   rationaleConversational: string[];
 }
@@ -197,7 +198,7 @@ export default function TaskPage() {
         </div>
 
         <p style={{ marginTop: "18px", padding: "12px", background: "#f8fafc", borderRadius: "8px", border: "1px solid #e2e8f0" }}>
-          <strong>Decision Required:</strong> Based on the analysis above, do you accept <strong>{config.agentName}</strong>'s recommendation for <strong>{currentTask.optionA.name}</strong>?
+          <strong>Decision Required:</strong> Based on the analysis above, do you accept <strong>{config.agentName}</strong>'s recommendation for <strong>{currentTask.aiRecommendation === "A" ? currentTask.optionA.name : currentTask.optionB.name}</strong>?
         </p>
 
         <div className="buttonRow">
@@ -208,7 +209,6 @@ export default function TaskPage() {
             Accept Recommendation
           </button>
           <button
-            className="secondary"
             onClick={() => submitDecision("override")}
             disabled={submitting}
           >
