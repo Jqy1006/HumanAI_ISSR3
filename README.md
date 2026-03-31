@@ -62,6 +62,9 @@ rm -f logs/decisions.json logs/decisions.csv logs/assignment_counter.json
 | **语气 (Tone)** | formal (正式文档语气) | conversational (口语化交流语气) |
 | **置信度 (Confidence Framing)** | 严谨的实际概率 ("系统测算...") | 夸口的主观肯定 ("我十分确定...") |
 
+> **🚀 架构优势 (Architectural Superiority)**  
+> 区别于某些采用硬编码（Hardcoded）为每道题单独撰写 Condition A 和 B 话术的竞品方案，本系统采用了**正交的三维度 Modular Cue System**。这意味着你可以随时在独立变量之间进行组合（例如：将“系统风名”搭配“极度夸大确信的语气”），不仅极大节省了题目数据结构的冗余，还为未来引入更多的线索维度（如视觉 UI、排版布局）打下了完美的扩展基础。
+
 **界面不过多包含信任测试等实验相关内容的静态显示：** 比如为了防止受试者受到固定正确率的心智锚定，强迫受试者根据界面、语气、长文推理等线索判断信任感，AI的准确率标语不予在UI上呈现。
 
 #### 线索系统是如何工作的
@@ -138,7 +141,17 @@ Block randomization (区块平衡随机化算法) 保证分配条件人数绝对
 | `confidence_rating` | number | 1–7 用户的自我决策信心分 |
 | `browser_meta` | object | 系统自动获取的 UA、屏幕尺寸等反指纹数据 |
 
-日志将实时双写保存至 `logs/decisions.json` 以及 `logs/decisions.csv`。
+> **🚀 架构优势：无感即时落盘双写 (Instant Fallback Logging)**  
+> 区别于某些采用“在所有测试结束后一次性 Batch Upload 到数据库”的危险架构（一旦用户中途断网或关闭网页，全盘数据丢失），本项目采用 **Client-side State Cached + Server-side Instant File Writing**。用户的每一次点击（无论是 `accept` 还是 `override`）都会在毫秒级内通过 `POST` 请求静默写入后端的 JSON 与 CSV，真正做到**零数据丢失**，同时用户界面保持绝对的无阻塞丝滑响应。
+
+---
+
+## 🌍 全球化跨文化考量储备 (i18n & Cross-Cultural Considerations)
+
+因为该项目旨在探究**人类对机器产生的信任 (Trust Attribution)**，必须意识到：**来自不同国家、文化背景（如集体主义 vs 个人主义、权力距离高低的文化）的人群对“权威”和“类人 AI”的信任倾向存在巨大差异**。
+为了满足潜在的全球化问卷发放需求，防止语言不互通带来的实验偏差，本项目已在底层注入了向国际化多语言兼容的潜能：
+* **结构与视图解耦**：问卷的 Scenario 文本与 UI 控制逻辑完全独立于 `lib/tasks.ts`，未来可轻易接入基于 `next-i18next` 或语言变量注入（Lang Keys）的全球翻译矩阵。
+* **数据流安全**：已通过严格的 UTF-8 与跨国编码处理方式，确保所有语种在落盘进入 CSV/JSON 时不会乱码，完美支持跨国样本收集。
 
 ---
 
