@@ -1,16 +1,38 @@
 [
   {
-    "participant_id": "P-20260328194500-4821",
+    "participant_id": "P-20260330204500-1234",
     "condition": "A",
+    "task_type": "recommendation",
     "decision": "accept",
-    "timestamp": "2026-03-28T19:45:03.201Z",
-    "latency_ms": 3218
+    "timestamp": "2026-03-30T20:45:03.201Z",
+    "latency_ms": 3218,
+    "trust_rating": 5,
+    "confidence_rating": 6,
+    "browser_meta": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+      "language": "en-US",
+      "screenWidth": 1920,
+      "screenHeight": 1080,
+      "windowWidth": 1440,
+      "windowHeight": 900
+    }
   },
   {
-    "participant_id": "P-20260328194710-1054",
+    "participant_id": "P-20260330204710-5678",
     "condition": "B",
+    "task_type": "recommendation",
     "decision": "override",
-    "timestamp": "2026-03-28T19:47:16.511Z",
-    "latency_ms": 4890
+    "timestamp": "2026-03-30T20:47:16.511Z",
+    "latency_ms": 4890,
+    "trust_rating": 3,
+    "confidence_rating": 5,
+    "browser_meta": {
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+      "language": "en-US",
+      "screenWidth": 2560,
+      "screenHeight": 1440,
+      "windowWidth": 1920,
+      "windowHeight": 1080
+    }
   }
 ]

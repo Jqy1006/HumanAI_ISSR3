@@ -27,11 +27,9 @@ export default function HomePage() {
     <main>
       <div className="card">
         <div className="badge">HumanAI ISSR3 Screening Prototype</div>
-        <h1>Humanlike AI Systems and Trust Attribution</h1>
+        <h1>Decision Making Test</h1>
         <p className="muted">
-          This minimal prototype assigns a participant to one of two interface
-          conditions and records whether the participant accepts or overrides an
-          AI recommendation.
+          Welcome to the decision-making test. An AI assistant will provide recommendations to help you navigate a series of choices.
         </p>
 
         <div className="grid two-col">

@@ -8,9 +8,11 @@ export async function POST(request: NextRequest) {
   if (
     !body.participant_id ||
     !body.condition ||
+    !body.task_type ||
     !body.decision ||
     !body.timestamp ||
-    typeof body.latency_ms !== "number"
+    typeof body.latency_ms !== "number" ||
+    !body.browser_meta
   ) {
     return NextResponse.json(
       { error: "Invalid payload." },

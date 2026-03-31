@@ -1,12 +1,17 @@
 import { NextResponse } from "next/server";
 import { generateParticipantId } from "@/lib/participant";
+import { assignConditionBalanced } from "@/lib/randomization";
+import { getConditionById } from "@/lib/conditions";
 
 export async function GET() {
-  const condition = Math.random() < 0.5 ? "A" : "B";
+  const conditionId = assignConditionBalanced();
   const participantId = generateParticipantId();
+  const config = getConditionById(conditionId);
 
   return NextResponse.json({
     participantId,
-    condition
+    condition: conditionId,
+    accuracyRate: config?.accuracyRate ?? 0.75,
+    confidenceFraming: config?.confidenceFraming ?? "calibrated"
   });
 }
