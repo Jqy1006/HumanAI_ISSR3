@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f7fb;
+  color: #111827;
+}
+
+body {
+  min-height: 100vh;
+}
+
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+.card {
+  background: white;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+.muted {
+  color: #4b5563;
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+}
+
+.two-col {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.option {
+  border: 1px solid #d1d5db;
+  border-radius: 14px;
+  padding: 16px;
+  background: #fafafa;
+}
+
+.buttonRow {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+button,
+a.buttonLink {
+  border: none;
+  background: #111827;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+button.secondary,
+a.secondary {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #3730a3;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
